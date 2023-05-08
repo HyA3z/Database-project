@@ -1,8 +1,7 @@
 # Hospital Project
 
 ## conceptual model 
-![photo_2023-04-18_00-11-17](https://user-images.githubusercontent.com/98240581/232611785-44f5717e-de1b-4665-bf6b-9a742c0b77ac.jpg)
-
+![Alt text](docs/conceptual_model.png)
 
 ## Logical schema
 ![Alt text](docs/logical_model.png)
