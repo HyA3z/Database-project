@@ -1,3 +1,5 @@
+CREATE DATABASE hospital_database;
+
 CREATE TABLE Patients (
     PatientID INT PRIMARY KEY,
     FirstName VARCHAR(50),
