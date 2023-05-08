@@ -5,7 +5,7 @@
 
 
 ## Logical schema
-![Alt text](docs/logical-model.png)
+![Alt text](docs/logical_model.png)
 
 
 Logic model description:
