@@ -3,6 +3,7 @@
 ## conceptual model 
 ![Alt text](docs/conceptual_model.png)
 
+
 ## Logical schema
 ![Alt text](docs/logical_model.png)
 
