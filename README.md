@@ -124,3 +124,6 @@ Logic model description:
 | PatientID | The patient who is making the payment (foreign key referencing Patients) | INT |
 | PaymentDate | The date on which the payment was made | DATE |
 | PaymentAmount | The amount of the payment | DECIMAL(10,2) |
+
+## Physical model
+![Alt text](docs/Physical model.png)
