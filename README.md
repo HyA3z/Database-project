@@ -126,4 +126,4 @@ Logic model description:
 | PaymentAmount | The amount of the payment | DECIMAL(10,2) |
 
 ## Physical model
-![Alt text](docs/Physical model.png)
+![Alt text](docs/Physical_model.png)
