@@ -6,15 +6,6 @@ FROM Billing
 GROUP BY PatientID
 HAVING SUM(TotalCost) > 1000;
 
--- Retrieve the doctors and their average patient count per appointment
-SELECT DoctorID, COUNT(*) AS AppointmentCount, AVG(AppointmentCount) AS AvgPatientCount
-FROM (
-    SELECT DoctorID, PatientID, COUNT(*) AS AppointmentCount
-    FROM Appointments
-    GROUP BY DoctorID, PatientID
-) AS Subquery
-GROUP BY DoctorID;
-
 
 -- B. ORDER BY:
 -- Sorted by patient's age in descending order
