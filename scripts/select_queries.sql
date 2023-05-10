@@ -69,9 +69,6 @@ JOIN Doctors d ON m.DoctorID = d.DoctorID
 JOIN Prescriptions pr ON p.PatientID = pr.PatientID AND d.DoctorID = pr.DoctorID;
 
 
-
-
-
 -- D. <func>
 -- 1. AGGREGATING:
 -- Calculate the number of appointments and the earliest appointment date for each patient
