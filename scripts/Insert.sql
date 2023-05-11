@@ -52,7 +52,12 @@ INSERT INTO MedicalRecords (RecordID, PatientID, DoctorID, RecordDate, Diagnosis
 (7, 6, 3, '2022-03-20', 'Depression', 'Cognitive-behavioral therapy and antidepressants'),
 (8, 7, 4, '2022-02-15', 'Anxiety disorder', 'Anxiolytic medication and therapy'),
 (9, 8, 1, '2022-01-09', 'Migraine', 'Pain relief medication and rest'),
-(10, 9, 5, '2022-03-10', 'Osteoarthritis', 'Pain relief medication and physical therapy');
+(10, 9, 5, '2022-03-10', 'Osteoarthritis', 'Pain relief medication and physical therapy'),
+(11, 2, 3, '2022-02-15', 'Seasonal allergies', 'Antihistamines and nasal sprays'),
+(12, 1, 1, '2022-03-10', 'Headache', 'Over-the-counter pain relievers and relaxation techniques'),
+(13, 3, 2, '2022-04-20', 'Influenza', 'Bed rest, fluids, and antiviral medications'),
+(14, 2, 1, '2022-05-05', 'Sinusitis', 'Nasal irrigation, steam inhalation, and antibiotics if necessary'),
+(15, 1, 2, '2022-06-30', 'Migraine', 'Dark, quiet room, cold compress, and prescription migraine medication');
 
 -- Departments
 INSERT INTO Departments (DepartmentID, DepartmentName)
