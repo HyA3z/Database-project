@@ -1,0 +1,11 @@
+patientid,firstname,lastname,appointmentcount,earliestappointmentdate
+9,Michael,Wilson,2,2023/5/29
+3,Bob,Smith,2,2023/5/15
+5,David,Lee,2,2023/5/20
+4,Sara,Johnson,1,2023/5/18
+10,Jessica,Kim,1,2023/6/1
+6,Amy,Chen,1,2023/5/22
+2,Jane,Doe,1,2023/5/12
+7,Mark,Garcia,2,2023/5/24
+1,John,Doe,2,2023/5/10
+8,Emily,Davis,1,2023/5/26
