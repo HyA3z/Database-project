@@ -1,10 +1,10 @@
 
 -- A. GROUP BY + HAVING:
 --Retrieve the total cost of bills for each patient, but only show patients who have a total bill cost greater than $1000
-SELECT PatientID, SUM(TotalCost) AS TotalBillCost
+SELECT PatientID, CAST(SUM(TotalCost) AS INT) AS TotalBillCost
 FROM Billing
 GROUP BY PatientID
-HAVING SUM(TotalCost) > 1000;
+HAVING SUM(TotalCost) > 2000
 
 
 -- B. ORDER BY:
