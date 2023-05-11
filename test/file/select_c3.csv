@@ -1,4 +1,0 @@
-PatientID,FirstName,LastName,DoctorID,DoctorFirstName,DoctorLastName,RecordID,RecordDate,RowNum
-3,Bob,Smith,3,Michael,Williams,4,2022-01-23,1
-4,Sara,Johnson,4,Emily,Davis,5,2022-02-06,1
-5,David,Lee,5,David,Jones,6,2022-03-01,1
