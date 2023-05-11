@@ -9,7 +9,13 @@ INSERT INTO Patients (PatientID, FirstName, LastName, Gender, DateOfBirth, Addre
 (7, 'Mark', 'Garcia', 'Male', '1978-03-30', '135 Seventh St', '555-6789'),
 (8, 'Emily', 'Davis', 'Female', '1998-06-06', '864 Eighth St', '555-0123'),
 (9, 'Michael', 'Wilson', 'Male', '1970-09-12', '975 Ninth St', '555-4567'),
-(10, 'Jessica', 'Kim', 'Female', '1993-04-05', '246 Tenth St', '555-8901');
+(10, 'Jessica', 'Kim', 'Female', '1993-04-05', '246 Tenth St', '555-8901'),
+(11, 'Alex', 'Johnson', 'Male', '1982-08-12', '753 Eleventh St', '555-1234'),
+(12, 'Olivia', 'Anderson', 'Female', '1991-03-18', '852 Twelfth St', '555-5678'),
+(13, 'William', 'Brown', 'Male', '1987-11-25', '369 Thirteenth St', '555-9012'),
+(14, 'Sophia', 'Martinez', 'Female', '1996-09-03', '147 Fourteenth St', '555-3456'),
+(15, 'James', 'Taylor', 'Male', '1973-05-21', '258 Fifteenth St', '555-7890');
+
 
 -- Doctors
 INSERT INTO Doctors (DoctorID, FirstName, LastName, Gender, DateOfBirth, Address, PhoneNumber, Specialization)
@@ -117,7 +123,17 @@ INSERT INTO Rooms (RoomID, RoomNumber, RoomType, DepartmentID) VALUES
 (7, '203', 'Double', 2),
 (8, '204', 'Double', 2),
 (9, '301', 'Single', 3),
-(10, '302', 'Single', 3);
+(10, '302', 'Single', 3),
+(11, '303', 'Double', 3),
+(12, '304', 'Double', 3),
+(13, '401', 'Single', 4),
+(14, '402', 'Single', 4),
+(15, '403', 'Double', 4),
+(16, '404', 'Double', 4),
+(17, '501', 'Single', 7),
+(18, '502', 'Single', 6),
+(19, '503', 'Double', 8),
+(20, '504', 'Double', 9);
 
 -- Beds
 INSERT INTO Beds (BedID, RoomID, BedNumber) VALUES 
@@ -144,8 +160,7 @@ INSERT INTO Beds (BedID, RoomID, BedNumber) VALUES
 
 
 -- 向Medications表插入数据
-INSERT INTO Medications (MedicationID, MedicationName, MedicationDescription)
-VALUES
+INSERT INTO Medications (MedicationID, MedicationName, MedicationDescription) VALUES
 (1, 'Aspirin', 'Pain reliever and fever reducer'),
 (2, 'Amoxicillin', 'Antibiotic used to treat bacterial infections'),
 (3, 'Lisinopril', 'Medication used to treat high blood pressure'),
@@ -159,46 +174,54 @@ VALUES
 
 -- 向Prescriptions表插入数据
 
-INSERT INTO Prescriptions (PrescriptionID, PatientID, DoctorID, MedicationID, PrescriptionDate, Dosage)
-VALUES
-    (1, 1, 1, 1, '2022-04-01', '10mg daily'),
-    (2, 2, 2, 2, '2022-04-02', '20mg daily'),
-    (3, 3, 3, 3, '2022-04-03', '30mg daily'),
-    (4, 4, 4, 4, '2022-04-04', '40mg daily'),
-    (5, 5, 5, 5, '2022-04-05', '50mg daily'),
-    (6, 6, 6, 6, '2022-04-06', '60mg daily'),
-    (7, 7, 7, 7, '2022-04-07', '70mg daily'),
-    (8, 8, 8, 8, '2022-04-08', '80mg daily'),
-    (9, 9, 9, 9, '2022-04-09', '90mg daily'),
-    (10, 10, 10, 10, '2022-04-10', '100mg daily');
+INSERT INTO Prescriptions (PrescriptionID, PatientID, DoctorID, MedicationID, PrescriptionDate, Dosage) VALUES
+(1, 1, 1, 1, '2022-04-01', '10mg daily'),
+(2, 2, 2, 2, '2022-04-02', '20mg daily'),
+(3, 3, 3, 3, '2022-04-03', '30mg daily'),
+(4, 4, 4, 4, '2022-04-04', '40mg daily'),
+(5, 5, 5, 5, '2022-04-05', '50mg daily'),
+(6, 6, 6, 6, '2022-04-06', '60mg daily'),
+(7, 7, 7, 7, '2022-04-07', '70mg daily'),
+(8, 8, 8, 8, '2022-04-08', '80mg daily'),
+(9, 9, 9, 9, '2022-04-09', '90mg daily'),
+(10, 10, 10, 10, '2022-04-10', '100mg daily');
 
 
 
 -- Insert data into Billing table
-INSERT INTO Billing (BillID, PatientID, BillDate, TotalCost)
-VALUES (1, 1, '2022-04-01', 1500.00),
-       (2, 2, '2022-05-15', 3200.00),
-       (3, 3, '2022-06-03', 600.00),
-       (4, 4, '2022-07-12', 1800.00),
-       (5, 5, '2022-08-05', 2400.00),
-       (6, 6, '2022-09-20', 1500.00),
-       (7, 7, '2022-10-10', 800.00),
-       (8, 8, '2022-11-25', 1000.00),
-       (9, 9, '2022-12-15', 450.00),
-       (10, 10, '2023-01-07', 2000.00);
+INSERT INTO Billing (BillID, PatientID, BillDate, TotalCost) VALUES 
+(1, 1, '2022-04-01', 1500.00),
+(2, 2, '2022-05-15', 3200.00),
+(3, 3, '2022-06-03', 600.00),
+(4, 4, '2022-07-12', 1800.00),
+(5, 5, '2022-08-05', 2400.00),
+(6, 6, '2022-09-20', 1500.00),
+(7, 7, '2022-10-10', 800.00),
+(8, 8, '2022-11-25', 1000.00),
+(9, 9, '2022-12-15', 450.00),
+(10, 10, '2023-01-07', 2000.00),
+(11, 1, '2023-02-10', 1200.00),
+(12, 3, '2023-03-20', 900.00),
+(13, 5, '2023-04-05', 1800.00),
+(14, 7, '2023-05-15', 600.00),
+(15, 9, '2023-06-25', 1500.00),
+(16, 2, '2023-07-10', 2500.00),
+(17, 4, '2023-08-20', 800.00),
+(18, 6, '2023-09-05', 1100.00),
+(19, 8, '2023-10-15', 700.00),
+(20, 10, '2023-11-25', 1900.00);
 
 -- Insert data into Payments table
-INSERT INTO Payments (PaymentID, PatientID, PaymentDate, PaymentAmount)
-VALUES (1, 1, '2022-05-01', 500.00),
-       (2, 2, '2022-06-15', 1000.00),
-       (3, 3, '2022-07-03', 200.00),
-       (4, 4, '2022-08-12', 800.00),
-       (5, 5, '2022-09-05', 1200.00),
-       (6, 6, '2022-10-20', 500.00),
-       (7, 7, '2022-11-10', 400.00),
-       (8, 8, '2022-12-25', 600.00),
-       (9, 9, '2023-01-15', 150.00),
-       (10, 10, '2023-02-07', 1000.00);
+INSERT INTO Payments (PaymentID, PatientID, PaymentDate, PaymentAmount) VALUES (1, 1, '2022-05-01', 500.00),
+(2, 2, '2022-06-15', 1000.00),
+(3, 3, '2022-07-03', 200.00),
+(4, 4, '2022-08-12', 800.00),
+(5, 5, '2022-09-05', 1200.00),
+(6, 6, '2022-10-20', 500.00),
+(7, 7, '2022-11-10', 400.00),
+(8, 8, '2022-12-25', 600.00),
+(9, 9, '2023-01-15', 150.00),
+(10, 10, '2023-02-07', 1000.00);
 
 
 
