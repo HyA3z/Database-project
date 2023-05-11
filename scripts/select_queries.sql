@@ -1,4 +1,4 @@
--- Remark (*) it means will be created test next task 
+-- Remark: (*) it means will be created test next task 
 
 
 -- A. GROUP BY + HAVING:
