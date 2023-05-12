@@ -17,7 +17,7 @@ SELECT Patients.PatientID, Patients.FirstName, Patients.LastName, COUNT(MedicalR
 FROM Patients
 LEFT JOIN MedicalRecords ON Patients.PatientID = MedicalRecords.PatientID
 GROUP BY Patients.PatientID, Patients.FirstName, Patients.LastName
-ORDER BY VisitCount DESC;
+ORDER BY VisitCount DESC, FirstName;
 
 
 -- C. <func>(..) OVER (..):
