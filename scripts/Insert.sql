@@ -98,6 +98,8 @@ VALUES
 (9, 5, 'Daniel', 'Lee', 'Male', '1978-02-15', '901 Oak Hill', '555-4567'),
 (10, 5, 'Isabella', 'Gonzalez', 'Female', '1992-07-20', '1234 Ridge Rd', '555-8901');
 
+
+
 -- Admissions
 INSERT INTO Admissions (AdmissionID, PatientID, AdmissionDate, DischargeDate)
 VALUES
@@ -184,7 +186,22 @@ INSERT INTO Prescriptions (PrescriptionID, PatientID, DoctorID, MedicationID, Pr
 (7, 7, 7, 7, '2022-04-07', '70mg daily'),
 (8, 8, 8, 8, '2022-04-08', '80mg daily'),
 (9, 9, 9, 9, '2022-04-09', '90mg daily'),
-(10, 10, 10, 10, '2022-04-10', '100mg daily');
+(10, 10, 10, 10, '2022-04-10', '100mg daily'),
+(11, 2, 4, 3, '2022-04-01', '10mg daily'),
+(12, 1, 3, 4, '2022-04-02', '20mg daily'),
+(13, 7, 1, 3, '2022-04-03', '30mg daily'),
+(14, 2, 5, 4, '2022-04-04', '40mg daily'),
+(15, 6, 2, 3, '2022-04-05', '50mg daily'),
+(16, 4, 1, 7, '2022-04-06', '60mg daily'),
+(17, 8, 7, 9, '2022-04-07', '70mg daily'),
+(18, 3, 2, 1, '2022-04-08', '80mg daily'),
+(19, 9, 3, 6, '2022-04-09', '90mg daily'),
+(20, 10, 7, 7, '2022-04-10', '100mg daily'),
+(21, 3, 5, 4, '2022-04-11', '110mg daily'),
+(22, 6, 7, 4, '2022-04-12', '120mg daily'),
+(23, 2, 8, 1, '2022-04-13', '130mg daily'),
+(24, 6, 7, 9, '2022-04-14', '140mg daily'),
+(25, 2, 5, 9, '2022-04-15', '150mg daily');
 
 
 
