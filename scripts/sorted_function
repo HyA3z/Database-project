@@ -1,1 +1,25 @@
-
+CREATE FUNCTION sort_patients_by_bill_cost()
+RETURNS TABLE (
+  PatientID INT,
+  FirstName VARCHAR(50),
+  LastName VARCHAR(50),
+  Gender VARCHAR(10),
+  TotalBillCost DECIMAL(10,2)
+) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT
+      Patients.PatientID,
+      Patients.FirstName,
+      Patients.LastName,
+      Patients.Gender,
+      SUM(Billing.TotalCost) AS TotalBillCost
+    FROM
+      Patients
+      INNER JOIN Billing ON Patients.PatientID = Billing.PatientID
+    GROUP BY
+      Patients.PatientID
+    ORDER BY
+      TotalBillCost DESC;
+END;
+$$ LANGUAGE plpgsql;
