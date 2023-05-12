@@ -1,5 +1,0 @@
-"patientid","firstname","lastname","doctorid","doctorfirstname","doctorlastname","recordid","recorddate","rownum"
-1,"John","Doe",1,"John","Smith",12,"2022-03-10",1
-3,"Bob","Smith",3,"Michael","Williams",4,"2022-01-23",1
-4,"Sara","Johnson",4,"Emily","Davis",5,"2022-02-06",1
-5,"David","Lee",5,"David","Jones",6,"2022-03-01",1
