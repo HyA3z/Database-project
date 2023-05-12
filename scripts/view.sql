@@ -1,6 +1,5 @@
--- 1）Anonymous Patient information
-
-DROP VIEW patients_anonymized;
+-- 1）
+-- Anonymous Patient information
 
 CREATE VIEW patients_anonymized AS
 SELECT
@@ -22,8 +21,10 @@ FROM Patients;
 SELECT * FROM patients_anonymized;
 
 
+-- 2）
+-- Anonymous medical records
 
--- 2）Anonymous medical records
+CREATE VIEW medicalrecords_anonymized AS
 SELECT
     m.RecordID,
     p.PatientID,
@@ -40,9 +41,12 @@ FROM
     JOIN Patients p ON m.PatientID = p.PatientID
     JOIN Doctors d ON m.DoctorID = d.DoctorID;
 
+SELECT * FROM medicalrecords_anonymized;
+
 
 -- 3）
 -- Create a view for patient appointment statistics
+
 CREATE VIEW PatientAppointmentStats AS
 SELECT
     p.PatientID,
@@ -59,12 +63,12 @@ GROUP BY
     p.FirstName,
     p.LastName;
 
-
 SELECT * FROM PatientAppointmentStats;
 
 
 -- 4)
 -- Displays the appointment information for each patient and the doctor associated with it
+
 CREATE VIEW PatientAppointments AS
 SELECT
     P.PatientID,
@@ -85,6 +89,7 @@ SELECT * FROM PatientAppointments;
 
 -- 5)
 -- Shows the drugs prescribed by each doctor and their quantities
+
 CREATE VIEW DoctorPrescriptions AS
 SELECT d.DoctorID, d.FirstName, d.LastName, m.MedicationID, m.MedicationName, COUNT(p.PrescriptionID) AS PrescriptionCount
 FROM Doctors d
@@ -92,12 +97,11 @@ INNER JOIN Prescriptions p ON d.DoctorID = p.DoctorID
 INNER JOIN Medications m ON p.MedicationID = m.MedicationID
 GROUP BY d.DoctorID, d.FirstName, d.LastName, m.MedicationID, m.MedicationName;
 
-
 SELECT * FROM DoctorPrescriptions;
 
 -- 6)
 -- The number of prescriptions for each drug and how many patients are using them
-DROP VIEW MedicationPrescriptions;
+
 CREATE VIEW MedicationPrescriptions AS
 SELECT m.MedicationID, m.MedicationName, COUNT(p.PrescriptionID) AS PrescriptionCount, COUNT(DISTINCT p.PatientID) AS UniquePatients
 FROM Medications m
@@ -105,13 +109,12 @@ INNER JOIN Prescriptions p ON m.MedicationID = p.MedicationID
 GROUP BY m.MedicationID, m.MedicationName
 ORDER BY PrescriptionCount DESC;
 
-
 SELECT * FROM MedicationPrescriptions;
-
 
 
 -- 7)
 -- Displays all prescriptions received for each patient and their details
+
 CREATE VIEW PatientPrescriptions AS
 SELECT p.PrescriptionID, pat.FirstName AS PatientFirstName, pat.LastName AS PatientLastName,
        doc.FirstName AS DoctorFirstName, doc.LastName AS DoctorLastName,
@@ -120,6 +123,5 @@ FROM Prescriptions p
 INNER JOIN Patients pat ON p.PatientID = pat.PatientID
 INNER JOIN Doctors doc ON p.DoctorID = doc.DoctorID
 INNER JOIN Medications m ON p.MedicationID = m.MedicationID;
-
 
 SELECT * FROM PatientPrescriptions;
