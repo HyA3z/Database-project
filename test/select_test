@@ -27,7 +27,7 @@ def a():
 
 
 result_a = a()
-expected_a = pd.read_csv('./result_output/select_A.csv')
+expected_a = pd.read_csv('./test312/select_A.csv')
 
 
 # Test for query B
@@ -38,7 +38,7 @@ def b():
     FROM Patients
     LEFT JOIN MedicalRecords ON Patients.PatientID = MedicalRecords.PatientID
     GROUP BY Patients.PatientID, Patients.FirstName, Patients.LastName
-    ORDER BY VisitCount DESC;
+    ORDER BY VisitCount DESC, FirstName;
     """)
     rows = cur.fetchall()
     cur.close()
@@ -46,7 +46,7 @@ def b():
 
 
 result_b = b()
-expected_b = pd.read_csv('./result_output/select_B.csv')
+expected_b = pd.read_csv('./test312/select_B.csv')
 
 
 # Test for query C1
@@ -66,7 +66,7 @@ def c1():
 
 
 result_c1 = c1()
-expected_c1 = pd.read_csv('./result_output/select_C1.csv')
+expected_c1 = pd.read_csv('./test312/select_C1.csv')
 
 
 # Test for query C2
@@ -83,7 +83,7 @@ def c2():
 
 
 result_c2 = c2()
-expected_c2 = pd.read_csv('./result_output/select_C2.csv')
+expected_c2 = pd.read_csv('./test312/select_C2.csv')
 
 
 # Test for query C3
@@ -104,7 +104,7 @@ def c3():
 
 
 result_c3 = c3()
-expected_c3 = pd.read_csv('./result_output/select_C3.csv')
+expected_c3 = pd.read_csv('./test312/select_C3.csv')
 expected_c3['recorddate'] = pd.to_datetime(expected_c3['recorddate'])
 result_c3['recorddate'] = pd.to_datetime(result_c3['recorddate'])
 
@@ -127,7 +127,7 @@ def d1():
 
 
 result_d1 = d1()
-expected_d1 = pd.read_csv('./result_output/select_D1.csv')
+expected_d1 = pd.read_csv('./test312/select_D1.csv')
 expected_d1['earliestappointmentdate'] = pd.to_datetime(expected_d1['earliestappointmentdate'])
 result_d1['earliestappointmentdate'] = pd.to_datetime(result_d1['earliestappointmentdate'])
 
@@ -161,7 +161,7 @@ def d2():
 
 
 result_d2 = d2()
-expected_d2 = pd.read_csv('./result_output/select_D2.csv', encoding='utf-8')
+expected_d2 = pd.read_csv('./test312/select_D2.csv', encoding='utf-8')
 expected_d2['appointmentdate'] = pd.to_datetime(expected_d2['appointmentdate'])
 result_d2['appointmentdate'] = pd.to_datetime(result_d2['appointmentdate'])
 result_d2['appointmenttime'] = result_d2['appointmenttime'].astype(str)
@@ -183,7 +183,7 @@ def d3():
 
 
 result_d3 = d3()
-expected_d3 = pd.read_csv('./result_output/select_D3.csv')
+expected_d3 = pd.read_csv('./test312/select_D3.csv')
 expected_d3['appointmentdate'] = pd.to_datetime(expected_d3['appointmentdate'])
 result_d3['appointmentdate'] = pd.to_datetime(result_d3['appointmentdate'])
 result_d3['appointmenttime'] = result_d3['appointmenttime'].astype(str)
@@ -209,7 +209,7 @@ def d4():
 
 
 result_d4 = d4()
-expected_d4 = pd.read_csv('./result_output/select_D4.csv')
+expected_d4 = pd.read_csv('./test312/select_D4.csv')
 
 
 conn.close()
@@ -225,12 +225,12 @@ def test():
     (result_d1, expected_d1),
     (result_d2, expected_d2),
     (result_d3, expected_d3),
-    (result_d4, expected_d4)]
+    (result_d4, expected_d4)
+    ]
 
     for result, expected in test_cases:
         assert_frame_equal(result, expected, check_dtype=False)
 
 
 test()
-
 
