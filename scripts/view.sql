@@ -8,10 +8,10 @@ SELECT
   CONCAT(LEFT(LastName, 1), REPEAT('*', CHAR_LENGTH(LastName) - 2), RIGHT(LastName, 1)) AS AnonymizedLastName,
   Gender,
   CASE
-  WHEN FLOOR(DATEDIFF(CURRENT_DATE, DateOfBirth) / 365.25) < 18 THEN 'Under 18'
-  WHEN FLOOR(DATEDIFF(CURRENT_DATE, DateOfBirth) / 365.25) < 30 THEN '18-29'
-  WHEN FLOOR(DATEDIFF(CURRENT_DATE, DateOfBirth) / 365.25) < 40 THEN '30-39'
-  WHEN FLOOR(DATEDIFF(CURRENT_DATE, DateOfBirth) / 365.25) < 50 THEN '40-49'
+  WHEN FLOOR(DATE_PART('YEAR', CURRENT_DATE) - DATE_PART('YEAR', DateOfBirth)) < 18 THEN 'Under 18'
+  WHEN FLOOR(DATE_PART('YEAR', CURRENT_DATE) - DATE_PART('YEAR', DateOfBirth)) < 30 THEN '18-29'
+  WHEN FLOOR(DATE_PART('YEAR', CURRENT_DATE) - DATE_PART('YEAR', DateOfBirth)) < 40 THEN '30-39'
+  WHEN FLOOR(DATE_PART('YEAR', CURRENT_DATE) - DATE_PART('YEAR', DateOfBirth)) < 50 THEN '40-49'
   ELSE '50 and above'
   END AS AnonymizedAgeRange,
   '********' AS AnonymizedAddress,
@@ -61,7 +61,8 @@ FROM
 GROUP BY
     p.PatientID,
     p.FirstName,
-    p.LastName;
+    p.LastName
+ORDER BY TotalAppointments DESC;
 
 SELECT * FROM PatientAppointmentStats;
 
@@ -95,7 +96,8 @@ SELECT d.DoctorID, d.FirstName, d.LastName, m.MedicationID, m.MedicationName, CO
 FROM Doctors d
 INNER JOIN Prescriptions p ON d.DoctorID = p.DoctorID
 INNER JOIN Medications m ON p.MedicationID = m.MedicationID
-GROUP BY d.DoctorID, d.FirstName, d.LastName, m.MedicationID, m.MedicationName;
+GROUP BY d.DoctorID, d.FirstName, d.LastName, m.MedicationID, m.MedicationName
+ORDER BY d.FirstName;
 
 SELECT * FROM DoctorPrescriptions;
 
@@ -122,6 +124,7 @@ SELECT p.PrescriptionID, pat.FirstName AS PatientFirstName, pat.LastName AS Pati
 FROM Prescriptions p
 INNER JOIN Patients pat ON p.PatientID = pat.PatientID
 INNER JOIN Doctors doc ON p.DoctorID = doc.DoctorID
-INNER JOIN Medications m ON p.MedicationID = m.MedicationID;
+INNER JOIN Medications m ON p.MedicationID = m.MedicationID
+ORDER BY PatientFirstName, PatientLastName;
 
 SELECT * FROM PatientPrescriptions;
