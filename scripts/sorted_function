@@ -1,25 +1,34 @@
-CREATE FUNCTION sort_patients_by_bill_cost()
+-- takes a patientId as input and returns a result set containing the patient's first name, last name, appointment date, diagnosis, treatment, and medication name
+
+CREATE OR REPLACE FUNCTION getPatientMedicalHistory(patientId INT)
 RETURNS TABLE (
-  PatientID INT,
-  FirstName VARCHAR(50),
-  LastName VARCHAR(50),
-  Gender VARCHAR(10),
-  TotalBillCost DECIMAL(10,2)
-) AS $$
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    AppointmentDate DATE,
+    Diagnosis VARCHAR(200),
+    Treatment VARCHAR(200),
+    MedicationName VARCHAR(50)
+)
+AS $$
 BEGIN
-  RETURN QUERY
+    RETURN QUERY
     SELECT
-      Patients.PatientID,
-      Patients.FirstName,
-      Patients.LastName,
-      Patients.Gender,
-      SUM(Billing.TotalCost) AS TotalBillCost
+        p.FirstName,
+        p.LastName,
+        a.AppointmentDate,
+        mr.Diagnosis,
+        mr.Treatment,
+        m.MedicationName
     FROM
-      Patients
-      INNER JOIN Billing ON Patients.PatientID = Billing.PatientID
-    GROUP BY
-      Patients.PatientID
-    ORDER BY
-      TotalBillCost DESC;
+        Patients p
+        INNER JOIN Appointments a ON p.PatientID = a.PatientID
+        LEFT JOIN MedicalRecords mr ON a.PatientID = mr.PatientID
+        LEFT JOIN Prescriptions pr ON a.PatientID = pr.PatientID
+        LEFT JOIN Medications m ON pr.MedicationID = m.MedicationID
+    WHERE
+        p.PatientID = getPatientMedicalHistory.patientId;
 END;
 $$ LANGUAGE plpgsql;
+
+
+SELECT * FROM getPatientMedicalHistory(3);
