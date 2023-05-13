@@ -39,7 +39,8 @@ SELECT
 FROM
     MedicalRecords m
     JOIN Patients p ON m.PatientID = p.PatientID
-    JOIN Doctors d ON m.DoctorID = d.DoctorID;
+    JOIN Doctors d ON m.DoctorID = d.DoctorID
+ORDER BY m.RecordID;
 
 SELECT * FROM medicalrecords_anonymized;
 
