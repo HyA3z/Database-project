@@ -32,3 +32,40 @@ $$ LANGUAGE plpgsql;
 
 
 SELECT * FROM getPatientMedicalHistory(3);
+
+-- Appointment, medical record and billing information related to the specified patientID
+
+CREATE OR REPLACE FUNCTION get_patient_details(
+    patient_id INT
+) RETURNS TABLE(
+    appointment_date DATE,
+    appointment_time TIME,
+    doctor_first_name VARCHAR(50),
+    doctor_last_name VARCHAR(50),
+    diagnosis VARCHAR(200),
+    treatment VARCHAR(200),
+    bill_date DATE,
+    total_cost DECIMAL(10,2)
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT 
+        a.appointmentdate AS appointment_date,
+        a.appointmenttime AS appointment_time,
+        d.firstname AS doctor_first_name,
+        d.lastname AS doctor_last_name,
+        m.diagnosis AS diagnosis,
+        m.treatment AS treatment,
+        b.billdate AS bill_date,
+        b.totalcost AS total_cost
+    FROM 
+        appointments a
+        JOIN doctors d ON a.doctorid = d.doctorid
+        JOIN medicalrecords m ON a.patientid = m.patientid AND a.doctorid = m.doctorid
+        JOIN billing b ON a.patientid = b.patientid
+    WHERE 
+        a.patientid = patient_id;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_patient_details(1);
