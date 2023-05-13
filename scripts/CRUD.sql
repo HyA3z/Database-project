@@ -1,11 +1,7 @@
 -- INSERT
 -- 1)
 INSERT INTO Patients (PatientID, FirstName, LastName, Gender, DateOfBirth, Address, PhoneNumber)
-VALUES (11, 'John', 'Doe', 'Male', '1990-05-10', '123 Main St, City', '1234567890');
-
--- 2)
-INSERT INTO Doctors (DoctorID, FirstName, LastName, Gender, DateOfBirth, Address, PhoneNumber, Specialization)
-VALUES (11, 'Jane', 'Smith', 'Female', '1985-02-15', '456 Elm St, City', '9876543210', 'Cardiology');
+(11, 'Alex', 'Johnson', 'Male', '1982-08-12', '753 Eleventh St', '555-1234');
 
 
 -- SELECT 
