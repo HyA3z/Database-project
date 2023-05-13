@@ -10,7 +10,6 @@ INSERT INTO Patients (PatientID, FirstName, LastName, Gender, DateOfBirth, Addre
 (8, 'Emily', 'Davis', 'Female', '1998-06-06', '864 Eighth St', '555-0123'),
 (9, 'Michael', 'Wilson', 'Male', '1970-09-12', '975 Ninth St', '555-4567'),
 (10, 'Jessica', 'Kim', 'Female', '1993-04-05', '246 Tenth St', '555-8901'),
-(11, 'Alex', 'Johnson', 'Male', '1982-08-12', '753 Eleventh St', '555-1234'),
 (12, 'Olivia', 'Anderson', 'Female', '1991-03-18', '852 Twelfth St', '555-5678'),
 (13, 'William', 'Brown', 'Male', '1987-11-25', '369 Thirteenth St', '555-9012'),
 (14, 'Sophia', 'Martinez', 'Female', '1996-09-03', '147 Fourteenth St', '555-3456'),
