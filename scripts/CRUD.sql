@@ -1,7 +1,7 @@
 -- INSERT
 -- 1)
 INSERT INTO Patients (PatientID, FirstName, LastName, Gender, DateOfBirth, Address, PhoneNumber)
-(11, 'Alex', 'Johnson', 'Male', '1982-08-12', '753 Eleventh St', '555-1234');
+VALUES (11, 'Alex', 'Johnson', 'Male', '1982-08-12', '753 Eleventh St', '555-1234');
 
 
 -- SELECT 
